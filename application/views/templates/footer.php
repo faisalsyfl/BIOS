@@ -13,6 +13,7 @@
 <!--  Notifications Plugin, full documentation here: http://bootstrap-notify.remabledesigns.com/    -->
 <script src="<?=base_url(); ?>assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Material Dashboard Core initialisations of plugins and Bootstrap Material Design Library -->
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 <script src="<?=base_url(); ?>assets/js/material-dashboard.js?v=2.0.0"></script>
 <!-- demo init -->
 <script src="<?=base_url(); ?>assets/js/plugins/demo.js"></script>
