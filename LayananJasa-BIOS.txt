@@ -1,0 +1,35 @@
+	{
+		"indikator": "0061",
+		"uraian": "Inspeksi Teknis\/audit(kegiatan)",
+		"nmrumpun": "Lainnya"
+	},
+	{
+		"indikator": "652",
+		"uraian": "Kalibrasi (sampel)",
+		"nmrumpun": "Lainnya"
+	},
+	{
+		"indikator": "0063",
+		"uraian": "Konsultasi (kegiatan)",
+		"nmrumpun": "Lainnya"
+	},
+	{
+		"indikator": "662",
+		"uraian": "Litbang (Kegiatan)",
+		"nmrumpun": "Lainnya"
+	},
+	{
+		"indikator": "622",
+		"uraian": "Pelatihan (peserta)",
+		"nmrumpun": "Lainnya"
+	},
+	{
+		"indikator": "0060",
+		"uraian": "Pengujian (sampel)",
+		"nmrumpun": "Lainnya"vv
+	},
+	{
+    "indikator": "0064",
+    "uraian": "Sertifikasi (Sertifikat)",
+    "nmrumpun": "Lainnya"
+},
