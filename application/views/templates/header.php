@@ -21,6 +21,11 @@
     <!--     Fonts and icons     -->
     <link href="<?=base_url(); ?>assets/css/font-awesome.css" rel="stylesheet" />
     <link href="<?=base_url(); ?>assets/css/google-roboto-300-700.css" rel="stylesheet" />
+    <style type="text/css" media="screen">
+        .ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-donut {
+             stroke: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,11 +52,11 @@
                     <li class="nav-item <?php if($this->uri->segment(1) == "Bios") echo "active"; ?>">
                         <a class="nav-link" href="<?=base_url(); ?>Bios">
                             <i class="fa fa-refresh"></i>
-                            <p>Web Service Bios</p>
+                            <p>Web Service BIOS</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php if($this->uri->segment(1) == "Services") echo "active"; ?>" href="<?=base_url(); ?>Services">
+                    <li class="nav-item <?php if($this->uri->segment(1) == "Services") echo "active"; ?>">
+                        <a class="nav-link" href="<?=base_url(); ?>Services">
                             <i class="material-icons">group_work</i>
                             <p>Layanan Jasa</p>
                         </a>

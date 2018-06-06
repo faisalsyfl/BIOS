@@ -545,7 +545,7 @@ demo = {
 
 
         dataColouredRoundedLineChart = {
-          labels: ['\'06','\'07','\'08','\'09', '\'10', '\'11', '\'12', '\'13', '\'14','\'15'],
+          labels: ['Semen','Kimia','Logam','Otomotif', 'Kalibrasi', '\'11', '\'12', '\'13', '\'14','\'15'],
           series: [
             [287, 480, 290, 554, 690, 690, 500, 752, 650, 900, 944]
           ]
@@ -560,7 +560,7 @@ demo = {
               offset: 40
           },
           axisX: {
-              showGrid: false,
+              showGrid: true,
           },
           low: 0,
           high: 1000,
@@ -578,7 +578,7 @@ demo = {
 
 
         dataColouredBarsChart = {
-          labels: ['\'06','\'07','\'08','\'09', '\'10', '\'11', '\'12', '\'13', '\'14','\'15'],
+          labels: ['Semen','Kimia','Logam','Otomotif', 'Kalibrasi', '\'11', '\'12', '\'13', '\'14','\'15'],
           series: [
             [287, 385, 490, 554, 586, 698, 695, 752, 788, 846, 944],
             [67, 152, 143,  287, 335, 435, 437, 539, 542, 544, 647],
@@ -657,24 +657,23 @@ demo = {
 
 
         var dataMultipleBarsChart = {
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          labels: ['Kalibrasi', 'Kimia', 'Semen', 'Beton', 'Logam', 'Otomotif', 'Bartek', 'Metalografi', 'EMC', 'Listrik', 'NDT', 'Dec'],
           series: [
-            [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
-            [412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
+            [120, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12]
           ]
         };
 
         var optionsMultipleBarsChart = {
             seriesBarDistance: 10,
             axisX: {
-                showGrid: false
+                showGrid: true
             },
-            height: '300px'
+            height: '200px'
         };
 
         var responsiveOptionsMultipleBarsChart = [
           ['screen and (max-width: 640px)', {
-            seriesBarDistance: 5,
+            seriesBarDistance: 2,
             axisX: {
               labelInterpolationFnc: function (value) {
                 return value[0];
@@ -684,9 +683,50 @@ demo = {
         ];
 
         var multipleBarsChart = Chartist.Bar('#multipleBarsChart', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
+        var multipleBarsChart2 = Chartist.Bar('#multipleBarsChart2', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
+        var multipleBarsChart3 = Chartist.Bar('#multipleBarsChart3', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
 
         //start animation for the Emails Subscription Chart
         md.startAnimationForBarChart(multipleBarsChart);
+        md.startAnimationForBarChart(multipleBarsChart2);
+        md.startAnimationForBarChart(multipleBarsChart3);
+
+        /**********************************************************/
+
+        var dataMultipleBarsChart = {
+          labels: ['LSMML', 'LSPRO', 'LSP', 'LSIH'],
+          series: [
+            [120, 12, 12, 12]
+          ]
+        };
+
+        var optionsMultipleBarsChart = {
+            seriesBarDistance: 10,
+            axisX: {
+                showGrid: true
+            },
+            height: '200px'
+        };
+
+        var responsiveOptionsMultipleBarsChart = [
+          ['screen and (max-width: 640px)', {
+            seriesBarDistance: 2,
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0];
+              }
+            }
+          }]
+        ];
+
+        var sertifikasi1 = Chartist.Bar('#sertifikasi1', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
+        var sertifikasi2 = Chartist.Bar('#sertifikasi2', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
+        var sertifikasi3 = Chartist.Bar('#sertifikasi3', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
+
+        //start animation for the Emails Subscription Chart
+        md.startAnimationForBarChart(sertifikasi1);
+        md.startAnimationForBarChart(sertifikasi2);
+        md.startAnimationForBarChart(sertifikasi3);
     },
 
     initDashboardPageCharts: function(){

@@ -3,8 +3,8 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-text" data-background-color="rose">
-                                    <h4 class="card-title">Data Layanan API</h4>
+                                <div class="card-header card-header-text" data-background-color="green">
+                                    <h4 class="card-title">BIOS Kemenkeu API</h4>
                                 </div>
                                 <div class="card-content">
                                     <h4><b>Layanan Lainnya</b></h4>
@@ -25,5 +25,25 @@
                         <!-- end col-md-12 -->
                     </div>
                     <!-- end row -->
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-text" data-background-color="blue">
+                                    <h4 class="card-title">API Result</h4>
+                                </div>
+                                <div class="card-content">
+                                    <h4><b>http://dashboard.b4t.go.id/api/get_layanan</b></h4>
+                                    <div>
+                                            <?php print_r($results); ?>
+                                        
+                                    </div>
+                                </div>
+                                <!-- end content-->
+                            </div>
+                            <!--  end card  -->
+                        </div>
+                        <!-- end col-md-12 -->
+                    </div>
+                    <!-- end row -->                    
                 </div>
             </div>

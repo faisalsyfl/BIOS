@@ -72,8 +72,11 @@
 
     $(document).ready(function() {
         demo.initDashboardPageCharts();
+        demo.initVectorMap();
+        demo.initCharts();
+
         $('#datatables').DataTable({
-            "pagingType": "full_numbers",
+            "pagingType": "simple",
             "lengthMenu": [
                 [100, 25, 50, -1],
                 [10, 25, 50, "All"]
