@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">access_time</i> updated 4 minutes ago
+                                        <i class="material-icons">access_time</i> not updated yet
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                        <i class="material-icons">access_time</i> not updated yet
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                                        <i class="material-icons">access_time</i> not updated yet
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="card-content">
                                     <div class="material-datatables">
-                                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                        <table class="table dataTables table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -204,7 +204,6 @@
                                                     <td><?=$service['service_name']; ?></td>
                                                     <td>5000</td>
                                                     <td class="text-right">
-                                                        <a href="#" class="btn btn-simple btn-info btn-icon like"><i class="material-icons">favorite</i></a>
                                                         <a href="#" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
                                                         <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
                                                     </td>

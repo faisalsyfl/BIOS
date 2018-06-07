@@ -75,7 +75,7 @@
         demo.initVectorMap();
         demo.initCharts();
 
-        $('#datatables').DataTable({
+        $('table.dataTables').DataTable({
             "pagingType": "simple",
             "lengthMenu": [
                 [100, 25, 50, -1],
@@ -90,7 +90,7 @@
         });
 
 
-        var table = $('#datatables').DataTable();
+        var table = $('table.dataTables').DataTable();
 
         // Edit record
         table.on('click', '.edit', function() {

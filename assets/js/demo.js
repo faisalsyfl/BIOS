@@ -659,7 +659,7 @@ demo = {
         var dataMultipleBarsChart = {
           labels: ['Kalibrasi', 'Kimia', 'Semen', 'Beton', 'Logam', 'Otomotif', 'Bartek', 'Metalografi', 'EMC', 'Listrik', 'NDT', 'Dec'],
           series: [
-            [120, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12]
+            [120, 100, 90, 70, 90, 20, 50, 12, 62, 70, 30, 30]
           ]
         };
 
@@ -686,47 +686,21 @@ demo = {
         var multipleBarsChart2 = Chartist.Bar('#multipleBarsChart2', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
         var multipleBarsChart3 = Chartist.Bar('#multipleBarsChart3', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
 
-        //start animation for the Emails Subscription Chart
-        md.startAnimationForBarChart(multipleBarsChart);
-        md.startAnimationForBarChart(multipleBarsChart2);
-        md.startAnimationForBarChart(multipleBarsChart3);
 
         /**********************************************************/
 
-        var dataMultipleBarsChart = {
+        var dataMultipleBarsChart2 = {
           labels: ['LSMML', 'LSPRO', 'LSP', 'LSIH'],
           series: [
+            [120, 12, 12, 12],
             [120, 12, 12, 12]
           ]
         };
 
-        var optionsMultipleBarsChart = {
-            seriesBarDistance: 10,
-            axisX: {
-                showGrid: true
-            },
-            height: '200px'
-        };
-
-        var responsiveOptionsMultipleBarsChart = [
-          ['screen and (max-width: 640px)', {
-            seriesBarDistance: 2,
-            axisX: {
-              labelInterpolationFnc: function (value) {
-                return value[0];
-              }
-            }
-          }]
-        ];
-
-        var sertifikasi1 = Chartist.Bar('#sertifikasi1', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
-        var sertifikasi2 = Chartist.Bar('#sertifikasi2', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
-        var sertifikasi3 = Chartist.Bar('#sertifikasi3', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
-
         //start animation for the Emails Subscription Chart
-        md.startAnimationForBarChart(sertifikasi1);
-        md.startAnimationForBarChart(sertifikasi2);
-        md.startAnimationForBarChart(sertifikasi3);
+        md.startAnimationForBarChart(multipleBarsChart);
+        md.startAnimationForBarChart(multipleBarsChart2);
+        md.startAnimationForBarChart(multipleBarsChart3);
     },
 
     initDashboardPageCharts: function(){

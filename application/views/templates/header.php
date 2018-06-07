@@ -6,7 +6,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="<?=base_url(); ?>assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="<?=base_url(); ?>assets/img/favicon.ico" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template</title>
+    <title>Dashboard | EIS B4T</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Canonical SEO -->
@@ -58,7 +58,37 @@
                     <li class="nav-item <?php if($this->uri->segment(1) == "Services") echo "active"; ?>">
                         <a class="nav-link" href="<?=base_url(); ?>Services">
                             <i class="material-icons">group_work</i>
-                            <p>Layanan Jasa</p>
+                            <p>Services Recap</p>
+                        </a>
+                    </li>
+                    <li class="nav-item <?php if($this->uri->segment(1) == "Testing") echo "active"; ?>">
+                        <a class="nav-link" href="<?=base_url(); ?>Services">
+                            <i class="material-icons">build</i>
+                            <p>Testing</p>
+                        </a>
+                    </li>
+                    <li class="nav-item <?php if($this->uri->segment(1) == "Certification") echo "active"; ?>">
+                        <a class="nav-link" href="<?=base_url(); ?>Certification">
+                            <i class="material-icons">description</i>
+                            <p>Certification</p>
+                        </a>
+                    </li>
+                    <li class="nav-item <?php if($this->uri->segment(1) == "Inspection") echo "active"; ?>">
+                        <a class="nav-link" href="<?=base_url(); ?>Services">
+                            <i class="material-icons">business</i>
+                            <p>Inspection</p>
+                        </a>
+                    </li>
+                    <li class="nav-item <?php if($this->uri->segment(1) == "Training") echo "active"; ?>">
+                        <a class="nav-link" href="<?=base_url(); ?>Services">
+                            <i class="material-icons">supervisor_account</i>
+                            <p>Training</p>
+                        </a>
+                    </li>
+                    <li class="nav-item <?php if($this->uri->segment(1) == "Research") echo "active"; ?>">
+                        <a class="nav-link" href="<?=base_url(); ?>Services">
+                            <i class="material-icons">wb_incandescent</i>
+                            <p>Research & Engineering</p>
                         </a>
                     </li>
                 </ul>
