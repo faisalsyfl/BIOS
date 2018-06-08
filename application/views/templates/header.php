@@ -22,9 +22,50 @@
     <link href="<?=base_url(); ?>assets/css/font-awesome.css" rel="stylesheet" />
     <link href="<?=base_url(); ?>assets/css/google-roboto-300-700.css" rel="stylesheet" />
     <style type="text/css" media="screen">
-        .ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-donut {
-             stroke: red;
+        .ct-chart .ct-legend {
+          position: relative;
+          z-index: 10;
+          list-style: none;
+          text-align: center;
         }
+        .ct-chart .ct-legend li {
+          position: relative;
+          padding-left: 23px;
+          margin-right: 10px;
+          margin-bottom: 3px;
+          cursor: pointer;
+          display: inline-block;
+        }
+        .ct-chart .ct-legend li:before {
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          left: 0;
+          content: "";
+          border: 3px solid transparent;
+          border-radius: 2px;
+        }
+        .ct-chart .ct-legend li .inactive:before {
+          background: transparent;
+        }
+        .ct-chart .ct-legend li:nth-child(1)::before {
+          background-color: #00bcd4;
+        }
+        .ct-chart .ct-legend li:nth-child(2)::before {
+          background-color: #f05b4f;
+        }
+        .ct-chart .ct-legend li:nth-child(3)::before {
+          background-color: #f4c63d;
+        }
+        .ct-chart .ct-legend li:nth-child(1n + 4)::before {
+          background-color: #f06292;
+        }
+        .ct-chart .ct-legend .ct-legend-inside {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+
     </style>
 </head>
 

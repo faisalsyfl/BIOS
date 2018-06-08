@@ -38,6 +38,7 @@
 <script src="<?=base_url(); ?>assets/js/moment.min.js"></script>
 <!--  Charts Plugin -->
 <script src="<?=base_url(); ?>assets/js/chartist.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.1/chartist-plugin-legend.min.js"></script>
 <!--  Plugin for the Wizard -->
 <script src="<?=base_url(); ?>assets/js/jquery.bootstrap-wizard.js"></script>
 <!--  Notifications Plugin    -->
@@ -71,10 +72,127 @@
 <script type="text/javascript">
 
     $(document).ready(function() {
-        demo.initDashboardPageCharts();
-        demo.initVectorMap();
         demo.initCharts();
 
+        /*------- Daily Orders SIPEJA -----------*/
+        dataDailySalesChart = {
+            labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+            series: [
+                [12, 17, 7, 17, 23, 18, 38]
+            ]
+        };
+
+        optionsDailySalesChart = {
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            low: 0,
+            high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
+        }
+
+        var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+
+        md.startAnimationForLineChart(dailySalesChart);
+
+
+
+        /* ----------==========     Completed Certification   ==========---------- */
+
+        dataCertificateTasksChart = {
+            labels: ['PC','LSPRO','SMML','LSIH'],
+            series: [
+                <?php echo $certificates; ?>
+            ]
+        };
+
+        optionsCertificateTasksChart = {
+            axisX: {
+                showGrid: false
+            },
+            low: 0,
+            high: <?php echo (($cmax*2)+($cmax/1.5))/2; ?>,
+            chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
+        }
+        var responsiveOptions = [
+          ['screen and (max-width: 640px)', {
+            seriesBarDistance: 5,
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0];
+              }
+            }
+          }]
+        ];
+        var CertificateTasksChart = new Chartist.Bar('#certificateTasksChart', dataCertificateTasksChart, optionsCertificateTasksChart, responsiveOptions);
+
+
+        // start animation for the Certificate Tasks Chart - Line Chart
+        md.startAnimationForBarChart(CertificateTasksChart);
+
+
+        /* ----------==========     Sample Dashboard    ==========---------- */
+
+        var dataSampleViewsChart = {
+          labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+          series: [
+            [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+
+          ]
+        };
+        var optionsSampleViewsChart = {
+            axisX: {
+                showGrid: false
+            },
+            low: 0,
+            high: 1000,
+            chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
+        };
+        var responsiveOptions = [
+          ['screen and (max-width: 640px)', {
+            seriesBarDistance: 5,
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0];
+              }
+            }
+          }]
+        ];
+        var SampleViewsChart = Chartist.Bar('#sampleViewsChart', dataSampleViewsChart, optionsSampleViewsChart, responsiveOptions);
+        //start animation for the Emails Subscription Chart
+        md.startAnimationForBarChart(SampleViewsChart);
+
+        /*============================================================================================================*/
+        /*Certification Page*/
+
+        dataMainCertificateChart = {
+            labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Okt','Nov','Des'],
+            series: 
+                <?=$certificates; ?>
+            
+        };
+
+        optionsMainCertificateChart = {
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            low: 0,
+            high: <?php echo (($cmax*2)+($cmax/1.5))/2; ?>, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
+            plugins:[Chartist.plugins.legend({})]
+        }
+
+        var mainCertificateChart = new Chartist.Line('#mainCertificateChart', dataMainCertificateChart, optionsMainCertificateChart);
+
+        md.startAnimationForLineChart(mainCertificateChart);
+
+
+
+
+
+
+
+        
         $('table.dataTables').DataTable({
             "pagingType": "simple",
             "lengthMenu": [
@@ -88,8 +206,6 @@
             }
 
         });
-
-
         var table = $('table.dataTables').DataTable();
 
         // Edit record

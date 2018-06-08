@@ -32,7 +32,7 @@
                         <div class="col-md-4">
                             <div class="card card-chart">
                                 <div class="card-header" data-background-color="rose">
-                                    <div class="ct-chart" id="websiteViewsChart"></div>
+                                    <div class="ct-chart" id="sampleViewsChart"></div>
                                 </div>
                                 <div class="card-content">
                                     <h4 class="card-title">Number of Samples</h4>
@@ -48,15 +48,15 @@
                         <div class="col-md-4">
                             <div class="card card-chart">
                                 <div class="card-header" data-background-color="blue">
-                                    <div class="ct-chart" id="completedTasksChart"></div>
+                                    <div class="ct-chart" id="certificateTasksChart"></div>
                                 </div>
                                 <div class="card-content">
-                                    <h4 class="card-title">Completed Testing</h4>
-                                    <p class="category">Completed Testing from SIPEJA</p>
+                                    <h4 class="card-title">Published Certificates</h4>
+                                    <p class="category">Published Certificate from B4T </p>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
-                                        <i class="material-icons">access_time</i> not updated yet
+                                        <i class="material-icons text-danger">access_time</i> LIVE!
                                     </div>
                                 </div>
                             </div>
