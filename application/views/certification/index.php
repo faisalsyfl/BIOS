@@ -12,7 +12,7 @@
                                             <h5>Kode Satker &nbsp;: 247140 <br> Indicator &nbsp;&nbsp;: 0062 <br>Uraian &nbsp;: Sertifikasi (Sertifikat)</h5>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="toolbar text-right">
+                                            <div class="toolbar pull-right">
                                                 <button class="btn btn-success" data-toggle="modal" data-target="#noticeModal">
                                                     <span class="btn-label">
                                                         <i class="material-icons">add</i>
@@ -20,6 +20,15 @@
                                                         New Data
                                                     <div class="ripple-container"></div>
                                                 </button>
+                                                <br>
+                                                <button type="button" class="dropdown-toggle bs-placeholder btn btn-primary btn-round" data-toggle="dropdown" role="button" title="Choose city" aria-expanded="false"><span class="filter-option pull-left">Graph Year</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span><div class="ripple-container"></div></button>
+                                                <div class="dropdown-menu open" role="combobox">
+                                                    <ul id="graphYear" class="dropdown-menu inner" role="listbox" aria-expanded="true">
+                                                        <li data-original-index="1" class="disabled selected"><a tabindex="-1" class="" data-tokens="null" role="option" href="#" aria-disabled="true" aria-selected="true"><span class="text">Year</span></a></li>
+                                                        <li data-original-index="1" class=""><a tabindex="-1" class="" data-tokens="null" role="option" href="#"><span class="text">2017</span></a></li>                                                        
+                                                        <li data-original-index="1" class=""><a tabindex="-1" class="" data-tokens="null" role="option" href="#"><span class="text">2018</span></a></li>                                                        
+                                                    </ul>
+                                                </div>
                                                 <!-- notice modal -->
                                                 <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-notice">
@@ -34,7 +43,7 @@
                                                                         <div class="col-md-4">
                                                                             <div class="form-group label-floating">
 <!--                                                                                 <label class="control-label">Year *</label>
- -->                                                                                <select name="data_type" class="form-control">
+ -->                                                                             <select name="data_type" class="form-control">
                                                                                     <option disabled selected>Choose Scope</option>
                                                                                     <option value="1">Personil</option>
                                                                                     <option value="2">Produk</option>

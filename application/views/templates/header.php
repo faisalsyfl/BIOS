@@ -65,7 +65,9 @@
           top: 0;
           right: 0;
         }
-
+        .modal-small .modal-body {
+             margin-top: 0px; 
+        }
     </style>
 </head>
 
@@ -96,14 +98,14 @@
                             <p>Web Service BIOS</p>
                         </a>
                     </li>
-                    <li class="nav-item <?php if($this->uri->segment(1) == "Services") echo "active"; ?>">
-                        <a class="nav-link" href="<?=base_url(); ?>Services">
-                            <i class="material-icons">group_work</i>
-                            <p>Services Recap</p>
-                        </a>
-                    </li>
+<!--                     <li class="nav-item <?php if($this->uri->segment(1) == "Services") echo "active"; ?>">
+    <a class="nav-link" href="<?=base_url(); ?>Services">
+        <i class="material-icons">group_work</i>
+        <p>Services Recap</p>
+    </a>
+</li> -->
                     <li class="nav-item <?php if($this->uri->segment(1) == "Testing") echo "active"; ?>">
-                        <a class="nav-link" href="<?=base_url(); ?>Services">
+                        <a class="nav-link" href="<?=base_url(); ?>Testing">
                             <i class="material-icons">build</i>
                             <p>Testing</p>
                         </a>

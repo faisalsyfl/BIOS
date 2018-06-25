@@ -9,7 +9,7 @@ class Bios extends CI_Controller {
 		// var_dump($data['results']);
 
 		$this->load->view('templates/header');
-		$this->load->view('Bios/webservice',$data);
+		$this->load->view('bios/webservice',$data);
 		$this->load->view('templates/footer');
 	}
 	public function get_layanan(){

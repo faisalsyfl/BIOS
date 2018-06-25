@@ -38,6 +38,11 @@
 <script src="<?=base_url(); ?>assets/js/moment.min.js"></script>
 <!--  Charts Plugin -->
 <script src="<?=base_url(); ?>assets/js/chartist.min.js"></script>
+<script src="<?=base_url(); ?>assets/js/chartjs.min.js"></script>
+<script src="<?=base_url(); ?>assets/js/highcharts.js"></script>
+<script src="<?=base_url(); ?>assets/js/highcharts-more.js"></script>
+<script src="<?=base_url(); ?>assets/js/exporting.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.1/chartist-plugin-legend.min.js"></script>
 <!--  Plugin for the Wizard -->
 <script src="<?=base_url(); ?>assets/js/jquery.bootstrap-wizard.js"></script>
@@ -72,16 +77,18 @@
 <script type="text/javascript">
 
     $(document).ready(function() {
+        $('#graphYear').on('change',function(){
+            
+        })
         demo.initCharts();
-
+        <?php if ($this->uri->segment(1) == ''){ ?>
         /*------- Daily Orders SIPEJA -----------*/
         dataDailySalesChart = {
-            labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
             series: [
-                [12, 17, 7, 17, 23, 18, 38]
+                <?=$orders; ?>
             ]
         };
-
         optionsDailySalesChart = {
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
@@ -90,22 +97,15 @@
             high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
         }
-
         var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
-
         md.startAnimationForLineChart(dailySalesChart);
-
-
-
         /* ----------==========     Completed Certification   ==========---------- */
-
         dataCertificateTasksChart = {
             labels: ['PC','LSPRO','SMML','LSIH'],
             series: [
                 <?php echo $certificates; ?>
             ]
         };
-
         optionsCertificateTasksChart = {
             axisX: {
                 showGrid: false
@@ -125,19 +125,13 @@
           }]
         ];
         var CertificateTasksChart = new Chartist.Bar('#certificateTasksChart', dataCertificateTasksChart, optionsCertificateTasksChart, responsiveOptions);
-
-
         // start animation for the Certificate Tasks Chart - Line Chart
         md.startAnimationForBarChart(CertificateTasksChart);
-
-
         /* ----------==========     Sample Dashboard    ==========---------- */
-
         var dataSampleViewsChart = {
-          labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+          labels: ['NDT', 'M', 'B', 'Ka', 'Lo', 'BT', 'O', 'Lt', 'EMC', 'S','Ki'],
           series: [
-            [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
-
+            <?=$sampels; ?>
           ]
         };
         var optionsSampleViewsChart = {
@@ -145,7 +139,7 @@
                 showGrid: false
             },
             low: 0,
-            high: 1000,
+            high: <?php echo (($smax*2)+($smax/10))/2; ?>,
             chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
         };
         var responsiveOptions = [
@@ -161,10 +155,11 @@
         var SampleViewsChart = Chartist.Bar('#sampleViewsChart', dataSampleViewsChart, optionsSampleViewsChart, responsiveOptions);
         //start animation for the Emails Subscription Chart
         md.startAnimationForBarChart(SampleViewsChart);
+        <?php } ?>
 
         /*============================================================================================================*/
         /*Certification Page*/
-
+        <?php if($this->uri->segment(1) == 'Certification'){ ?>
         dataMainCertificateChart = {
             labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Okt','Nov','Des'],
             series: 
@@ -183,29 +178,137 @@
         }
 
         var mainCertificateChart = new Chartist.Line('#mainCertificateChart', dataMainCertificateChart, optionsMainCertificateChart);
-
         md.startAnimationForLineChart(mainCertificateChart);
+        <?php } ?>
+
+        /*============================================================================================================*/
+        /*Testing Page*/
+        <?php if($this->uri->segment(1) == 'Testing'){ ?>
+          <?php $labs =[6=>'NDT',7=>'Metalografi',8=>'Beton',9=>'Kalibrasi',10=>'Logam',11=>'Barang Teknik',12=>'Otomotif',13=>'Listrik',14=>'Elektronika dan EMC',15=>'Semen',16=>'Kimia'];foreach($datasets as $key=> $dataset){ ?>
+
+          Highcharts.chart('chart<?=$key; ?>', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Laboratorium <?=$labs[$key]; ?>'
+            },
+            subtitle: {
+                text: 'Year 2018'
+            },
+            xAxis: {
+                categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Agu','Sep','Okt','Nov','Des'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 5,
+                title: {
+                    text: 'Income',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valuePrefix: 'Rp.'
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 80,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Reality',
+                data: <?=$datasets[$key];  ?>,
+                color: 'black'
+            }, {
+                name: 'Target',
+                data: [90000000,90000000,90000000,90000000,90000000,90000000],
+                color: 'red'
+            }]
+          });
+        <?php } ?>
+        <?php foreach($lingkups as $key=> $lingkup){ ?>
+
+          Highcharts.chart('lingkup<?=$key; ?>', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Laboratorium <?=$labs[$key]; ?>'
+            },
+            subtitle: {
+                text: 'Year 2018'
+            },
+            xAxis: {
+                categories: <?=$lingkup->label; ?>,
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 5,
+                title: {
+                    text: 'Income',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valuePrefix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 80,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Samples',
+                data: <?=$lingkup->data; ?>,
+                color: '#43a047'
+            }]
+          });
+        <?php } ?>
+        <?php } ?>
 
 
-
-
-
-
-
-        
-        $('table.dataTables').DataTable({
-            "pagingType": "simple",
-            "lengthMenu": [
-                [100, 25, 50, -1],
-                [10, 25, 50, "All"]
-            ],
-            responsive: true,
-            language: {
-                search: "_INPUT_",
-                searchPlaceholder: "Search records",
-            }
-
-        });
         var table = $('table.dataTables').DataTable();
 
         // Edit record

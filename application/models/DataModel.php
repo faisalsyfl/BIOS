@@ -39,10 +39,13 @@ class DataModel extends CI_Model {
 		}
 		return $json;
 	}
-	public function selectSumCertificateByMonth($type = NULL){
+	public function selectSumCertificateByMonth($type = NULL,$year = NULL){
 		$this->db->select('data_type ,sum(data_total) as total, data_month as mth');
 		$this->db->from($this->tableName);
 		$this->db->where('service_id',6);
+		if($year != NULL){
+			$this->db->where('data_year',$year);
+		}
 		$this->db->where('data_type',$type);
 		$this->db->order_by('mth','ASC');
 		$this->db->group_by('data_month');
@@ -53,7 +56,6 @@ class DataModel extends CI_Model {
 		foreach($datas as $data){
 			array_push($json,(int) $data['total']);
 		}
-
 		for ($i=0; $i <12 ; $i++) { 
 			if(!isset($json[$i])){
 				$json[$i] = 0;
